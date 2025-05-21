@@ -15,6 +15,7 @@
 		./terminal/apps/jujutsu.nix
 		./terminal/apps/starship.nix
 		./terminal/apps/tmux.nix
+		./terminal/apps/zoxide.nix
 		
 		# Music apps
 		
