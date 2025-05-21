@@ -3,7 +3,7 @@
 {
 	home.username = "brams";
 	home.stateVersion = "24.11";
-	# fonts.fontconfig.enable = true;
+	fonts.fontconfig.enable = true;
 
 	home.packages = [
 		pkgs.manix
