@@ -9,12 +9,11 @@
 		pkgs.manix
 	];
 
-	# nix.registry.n.flake = inputs.nixpkgs;
-	
 	imports = [
-		./terminal/fish.nix
-		./terminal/jujutsu.nix
-		./terminal/starship.nix
+		./terminal/apps/fish.nix
+		./terminal/apps/jujutsu.nix
+		./terminal/apps/starship.nix
+		./terminal/apps/tmux.nix
 	];
 
 }
