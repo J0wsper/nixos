@@ -56,6 +56,14 @@
   environment.systemPackages = with pkgs; [
   	vim
   	wget
+	bat
+	git
+	hyperfine
+	python3
+	ripgrep
+	neovim
+	fd
+	eza
   ];
   
   # Getting nerd fonts
