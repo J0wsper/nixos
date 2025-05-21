@@ -61,7 +61,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
