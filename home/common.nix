@@ -10,10 +10,15 @@
 	];
 
 	imports = [
+		# Terminal apps
 		./terminal/apps/fish.nix
 		./terminal/apps/jujutsu.nix
 		./terminal/apps/starship.nix
 		./terminal/apps/tmux.nix
+		
+		# Music apps
+		
+		# Miscellanious apps
 	];
 
 }
