@@ -7,6 +7,7 @@
 		shellInit = ''
 			zoxide init fish | source
 			starship init fish | source
+			set -g mouse on
 		'';
 		# shellAbbrs = {
 		# 	"cd ..." = "cd ../..";
