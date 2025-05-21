@@ -65,6 +65,7 @@
 	fd
 	eza
 	discord
+	fzf
   ];
   
   # Getting nerd fonts
