@@ -8,5 +8,10 @@
 			zoxide init fish | source
 			starship init fish | source
 		'';
+		# shellAbbrs = {
+		# 	"cd ..." = "cd ../..";
+		# 	"cd ...." = "cd ../../..";
+		# 	"cd ....." = "cd ../../../..";
+		# };
 	};
 } 
