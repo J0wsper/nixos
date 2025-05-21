@@ -96,7 +96,7 @@
   
   # Setting up home manager and its options.
   home-manager = {
-        users.brams = import /home/brams/nix/home/common.nix;
+        users.brams = import ../home/common.nix;
         useGlobalPkgs = true;
         useUserPackages = true;
   };
@@ -161,5 +161,11 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
+
+  system.configurationRevision =
+    if inputs.self ? rev then
+      inputs.self.rev
+    else
+      throw "Refusing to build from a dirty Git tree!";
 
 }
