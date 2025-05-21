@@ -5,7 +5,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  import = [
+  imports = [
     ./nixos-common.nix
   ];
 
