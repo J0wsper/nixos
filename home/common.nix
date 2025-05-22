@@ -19,6 +19,9 @@
 		./terminal/apps/tmux.nix
 		./terminal/apps/zoxide.nix
 		./terminal/apps/atuin.nix
+	
+		# Neovim
+		./terminal/neovim/default.nix
 		
 		# Music apps
 		

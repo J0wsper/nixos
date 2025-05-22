@@ -1,4 +1,4 @@
-{ config, inputs, pkgs }:
+{ config, inputs, pkgs, lib, ... }:
 
 {
 	programs.neovim = {
@@ -11,7 +11,6 @@
 			pkgs.nil
 			pkgs.nixd
 			pkgs.lua-language-server
-			pkgs.python3Packages.pyright
 			pkgs.rust-analyzer
 			pkgs.fish-lsp
 		];
@@ -35,10 +34,10 @@
 			lualine-nvim
 		];
 	};
-	xdg.configFile = {
-		"nvim/snippets".source = ./snippets;
-		"nvim/after/ftplugins".source = ./after/ftplugin;
-		"nvim/lua".source = ./lua;
-		"nvim/ftplugin".source = ./ftplugin;
-	};
+	# xdg.configFile = {
+	# 	"nvim/snippets".source = ./snippets;
+	# 	"nvim/after/ftplugins".source = ./after/ftplugin;
+	# 	"nvim/lua".source = ./lua;
+	# 	"nvim/ftplugin".source = ./ftplugin;
+	# };
 }
