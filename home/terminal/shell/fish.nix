@@ -12,6 +12,7 @@
 			zoxide init fish | source
 			starship init fish | source
 			atuin init fish | source
+			tmux
 		'';
 		plugins = [
 			{ 
