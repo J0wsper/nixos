@@ -18,6 +18,7 @@
 		./terminal/apps/starship.nix
 		./terminal/apps/tmux.nix
 		./terminal/apps/zoxide.nix
+		./terminal/apps/atuin.nix
 		
 		# Music apps
 		
