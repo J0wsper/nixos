@@ -12,7 +12,9 @@
 			zoxide init fish | source
 			starship init fish | source
 			atuin init fish | source
-			tmux
+			if test -z "$TMUX"
+				tmux
+			end
 		'';
 		plugins = [
 			{ 
