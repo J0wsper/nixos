@@ -5,13 +5,13 @@
 		enable = true;
 		generateCompletions = true;
 		interactiveShellInit = ''
-			set fish_greeting
-			theme_gruvbox dark medium
-		'';
-		shellInit = ''
 			zoxide init fish | source
 			starship init fish | source
 			atuin init fish | source
+			set fish_greeting
+		'';
+		shellInit = ''
+			theme_gruvbox dark medium
 			if test -z "$TMUX"
 				tmux
 			end
