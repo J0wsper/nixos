@@ -32,6 +32,7 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', {desc = 'Move focus to the left windo
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', {desc = 'Move focus to the left window'})
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', {desc = 'Move focus to the left window'})
 
+require("telescope")
 --  require("lsp")
 --  require("snippets")
 --  require("theme")
