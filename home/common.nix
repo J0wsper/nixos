@@ -7,6 +7,7 @@
 
 	home.packages = [
 		pkgs.manix
+		pkgs.xsel
 		pkgs.strawberry
 	];
 

@@ -7,6 +7,7 @@
 		plugins = with pkgs; [
 			tmuxPlugins.better-mouse-mode
 			tmuxPlugins.vim-tmux-navigator
+			tmuxPlugins.yank
 			tmuxPlugins.gruvbox	
 		];
 		extraConfig = ''
