@@ -9,10 +9,10 @@
 			tmuxPlugins.vim-tmux-navigator
 			tmuxPlugins.gruvbox	
 		];
-
-		# https://www.reddit.com/r/NixOS/comments/12mdyzv/need_help_installing_tmux_plugins_through/
 		extraConfig = ''
 			set -g mouse on
+			# https://vi.stackexchange.com/questions/16148/slow-vim-escape-from-insert-mode
+			set -sg escape-time 10 
 
 			bind -n M-h select-pane -L
 			bind -n M-j select-pane -D
