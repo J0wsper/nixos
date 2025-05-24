@@ -21,7 +21,7 @@
 		./terminal/apps/atuin.nix
 	
 		# Neovim
-		./terminal/neovim/default.nix
+		./terminal/neovim
 		
 		# Music apps
 		

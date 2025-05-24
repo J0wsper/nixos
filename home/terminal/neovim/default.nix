@@ -8,6 +8,8 @@
 		extraLuaPackages = luaPkgs: with luaPkgs; [];
 		extraPackages = [
 			pkgs.ripgrep
+
+			# Language servers
 			pkgs.nil
 			pkgs.nixd
 			pkgs.lua-language-server
