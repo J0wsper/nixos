@@ -7,9 +7,8 @@ vim.g.have_nerd_font = true
 -- Line numbers
 vim.opt.number = true
 
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- Allowing yanking between panes
+vim.opt.clipboard = {'unnamed', 'unnamedplus'}
 
 -- Enable break indent
 vim.opt.breakindent = true
