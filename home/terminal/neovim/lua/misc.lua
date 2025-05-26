@@ -1,3 +1,16 @@
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.smarttab = false
+vim.o.number = true
+vim.o.undofile = true
+
+-- Setting up assorted configs
+require("Comment").setup()
+require("which-key").setup {}
+require("noice").setup()
+require("trouble").setup {}
+
 -- Dropbar configuration
 local dropbar_api = require('dropbar.api')
 vim.keymap.set('n', '<leader>;', dropbar_api.pick, { desc = "Pick symbols in winbar"})
