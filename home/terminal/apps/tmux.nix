@@ -8,7 +8,6 @@
 			tmuxPlugins.better-mouse-mode
 			tmuxPlugins.vim-tmux-navigator
 			tmuxPlugins.yank
-			tmuxPlugins.gruvbox	
 		];
 		extraConfig = ''
 			set -g mouse on

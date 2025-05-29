@@ -31,6 +31,7 @@
         users.brams = import ../home/common.nix;
         useGlobalPkgs = true;
         useUserPackages = true;
+        extraSpecialArgs = { inherit inputs; };
   };
 
   programs.firefox.enable = true;

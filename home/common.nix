@@ -5,6 +5,8 @@
 	home.stateVersion = "24.11";
 	fonts.fontconfig.enable = true;
 
+    nix.registry.n.flake = inputs.nixpkgs;
+
 	home.packages = [
 		pkgs.manix
 		pkgs.xsel
@@ -20,6 +22,8 @@
 		./terminal/apps/tmux.nix
 		./terminal/apps/zoxide.nix
 		./terminal/apps/atuin.nix
+        ./terminal/apps/bat.nix
+        ./terminal/apps/btop.nix
 	
 		# Neovim
 		./terminal/neovim

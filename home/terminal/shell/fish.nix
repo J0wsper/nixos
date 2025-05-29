@@ -10,7 +10,7 @@
 			set fish_greeting
 		'';
 		shellInit = ''
-            		fish_config theme choose "Tomorrow Night"
+            		fish_config theme choose "Tomorrow Night Bright"
 			if test -z "$TMUX"
 				tmux
 			end
