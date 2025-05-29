@@ -58,6 +58,8 @@
   	wget
 	bat
 	git
+	btop
+	ghostty.terminfo
 	hyperfine
 	python3
 	ripgrep
@@ -66,6 +68,7 @@
 	eza
 	discord
 	fzf
+	openssh
   ];
   
   # Getting nerd fonts

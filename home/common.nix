@@ -27,6 +27,7 @@
 		# Music apps
 		
 		# Miscellanious apps
+		./apps/ghostty.nix
 	];
 
 }
