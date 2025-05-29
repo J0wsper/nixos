@@ -6,12 +6,11 @@
 		generateCompletions = true;
 		interactiveShellInit = ''
 			zoxide init fish | source
-			starship init fish | source
 			atuin init fish | source
 			set fish_greeting
 		'';
 		shellInit = ''
-            fish_config theme choose "Tomorrow Dark"
+            		fish_config theme choose "Tomorrow Night"
 			if test -z "$TMUX"
 				tmux
 			end
