@@ -11,16 +11,12 @@
 			set fish_greeting
 		'';
 		shellInit = ''
-			theme_gruvbox dark medium
+            fish_config theme choose "Tomorrow Dark"
 			if test -z "$TMUX"
 				tmux
 			end
 		'';
 		plugins = [
-			{ 
-				name = "gruvbox";
-				src = pkgs.fishPlugins.gruvbox.src;
-			}
 			{
 				name = "done";
 				src = pkgs.fishPlugins.done.src;
