@@ -60,7 +60,6 @@
 	bat
 	git
 	btop
-	ghostty.terminfo
 	hyperfine
 	python3
 	ripgrep
@@ -68,6 +67,7 @@
 	fd
 	eza
 	discord
+    libreoffice-qt6-fresh
 	fzf
 	openssh
   ];
