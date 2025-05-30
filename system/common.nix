@@ -67,7 +67,7 @@
 	fd
 	eza
 	discord
-    libreoffice-qt6-fresh
+    kdePackages.okular
 	fzf
 	openssh
   ];
