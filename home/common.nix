@@ -11,6 +11,7 @@
 		pkgs.manix
 		pkgs.xsel
 		pkgs.strawberry
+        pkgs.webex
 	];
 
 	imports = [
