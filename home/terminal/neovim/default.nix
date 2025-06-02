@@ -36,6 +36,7 @@
 			lualine-nvim
             nvim-treesitter.withAllGrammars
             nvim-web-devicons
+            leap-nvim
 
             # Themes
             catppuccin-nvim
