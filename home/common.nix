@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-	home.username = "brams";
+    home.username = "brams";
 	home.stateVersion = "24.11";
 	fonts.fontconfig.enable = true;
 
