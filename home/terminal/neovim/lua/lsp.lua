@@ -9,20 +9,20 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  map('gD', vim.lsp.buf.declaration, "go to declaration", "n", { buffer = bufnr })
-  map('gd', vim.lsp.buf.definition, "go to definition", "n", { buffer = bufnr })
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,  { buffer = bufnr, desc = "go to declaration" })
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition,  { buffer = bufnr, desc = "go to definition" })
   -- NOTE: this is handled in lua/folding.lua, where 'K' is bound to show the fold if on a fold, or dispatch to the LSP if not on a fold
-  -- map('K', vim.lsp.buf.hover, "hover", "n", { buffer = bufnr })
-  map('gi', vim.lsp.buf.implementation, "go to implementation", "n", { buffer = bufnr })
-  map('<C-k>', vim.lsp.buf.signature_help, "see signature", "n", { buffer = bufnr })
-  map('<space>wa', vim.lsp.buf.add_workspace_folder, "add workspace folder", "n", { buffer = bufnr })
-  map('<space>wr', vim.lsp.buf.remove_workspace_folder, "remove workspace folder", "n", { buffer = bufnr })
-  map('<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', "list workspace folders", "n", { buffer = bufnr })
-  map('<space>D', vim.lsp.buf.type_definition, "see type definition", "n", { buffer = bufnr })
-  map('<space>rn', vim.lsp.buf.rename, "rename", "n", { buffer = bufnr })
-  map('<space>ca', vim.lsp.buf.code_action, "code actions", "n", { buffer = bufnr })
-  map('gr', vim.lsp.buf.references, "see references", "n", { buffer = bufnr })
-  map('<space>f', vim.lsp.buf.format, "format", "n", { buffer = bufnr })
+  -- vim.keymap.set('n', 'K', vim.lsp.buf.hover,  { buffer = bufnr, desc = "hover" })
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,  { buffer = bufnr, desc = "go to implementation" })
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help,  { buffer = bufnr, desc = "see signature" })
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder,  { buffer = bufnr, desc = "add workspace folder" })
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder,  { buffer = bufnr, desc = "remove workspace folder" })
+  vim.keymap.set('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',  { buffer = bufnr, desc = "list workspace folders" })
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition,  { buffer = bufnr, desc = "see type definition" })
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename,  { buffer = bufnr, desc = "rename" })
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action,  { buffer = bufnr, desc = "code actions" })
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references,  { buffer = bufnr, desc = "see references" })
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.format, { buffer = bufnr, desc = "format" })
 
   -- code lens 
   -- (taken from https://discuss.ocaml.org/t/neovim-setup-in-lua-for-ocaml/10586)
@@ -78,15 +78,15 @@ lspconfig.lua_ls.setup {
 lspconfig.nil_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  settings = {
-    ['nil'] = {
-      nix = {
-        flake = {
-          autoArchive = true
-        }
-      }
-    }
-  }
+  -- settings = {
+  --   ['nil'] = {
+  --     nix = {
+  --       flake = {
+  --         autoArchive = true
+  --       }
+  --     }
+  --   }
+  -- }
 }
 lspconfig.nixd.setup {
   on_attach = on_attach,
