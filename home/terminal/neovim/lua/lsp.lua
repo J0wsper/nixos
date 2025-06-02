@@ -47,21 +47,11 @@ end
 --
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- nvim-ufo
-capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
-}
-capabilities.workspace = {
-  didChangeWatchedFiles = {
-    dynamicRegistration = true
-  }
-}
 
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'sourcekit', 'texlab', 'pylsp', 'bashls', 'html', 'ocamllsp', 'gopls', 'openscad_lsp', 'rust_analyzer', 'fish_lsp' }
+local servers = { 'sourcekit', 'texlab', 'pylsp', 'bashls', 'html', 'rust_analyzer', 'fish_lsp' }
 -- The HTML server says you should do
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- but it is covered by default_capabilities(), so I don't

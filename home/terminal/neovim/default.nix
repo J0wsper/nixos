@@ -34,6 +34,8 @@
 			noice-nvim
 			trouble-nvim
 			lualine-nvim
+            nvim-treesitter.withAllGrammars
+            nvim-web-devicons
 
             # Themes
             catppuccin-nvim

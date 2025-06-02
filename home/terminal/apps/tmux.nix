@@ -15,6 +15,7 @@
 
 			# https://github.com/edouard-lopez/tmux-tomorrow 
 			set -g default-terminal "screen-256color"
+            set-option -sg escape-time 10
 
             set -g @catppuccin_flavor 'mocha'
 
