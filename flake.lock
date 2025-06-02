@@ -1,5 +1,37 @@
 {
   "nodes": {
+    "catppuccin-bat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734996624,
+        "narHash": "sha256-6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=",
+        "owner": "catppuccin",
+        "repo": "bat",
+        "rev": "699f60fc8ec434574ca7451b444b880430319941",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "bat",
+        "type": "github"
+      }
+    },
+    "catppuccin-fish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740843741,
+        "narHash": "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=",
+        "owner": "catppuccin",
+        "repo": "fish",
+        "rev": "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "fish",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -39,25 +71,10 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-fish": "catppuccin-fish",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "tomorrow-bat": "tomorrow-bat"
-      }
-    },
-    "tomorrow-bat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1748505548,
-        "narHash": "sha256-/3kVYV0tacMFQAsRx4ZBm+zUYLtfrq7I1m+xLdMdChA=",
-        "owner": "J0wsper",
-        "repo": "tomorrow-night",
-        "rev": "847bf3911b5765d9223b79cce294dacfc09f37e0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "J0wsper",
-        "repo": "tomorrow-night",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

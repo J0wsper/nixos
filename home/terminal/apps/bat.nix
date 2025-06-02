@@ -1,14 +1,15 @@
 {config, pkgs, lib, inputs, ...}:
 
+# TODO: Set this theme to Tokyo Night
 {
     programs.bat = {
         enable = true;
         themes = {
-            tomorrow-night-bright = {
-                src = inputs.tomorrow-bat;
-                file = "Tomorrow Night Bright.tmTheme";
+            catppuccin-mocha = {
+                src = inputs.catppuccin-bat;
+                file = "themes/Catppuccin Mocha.tmTheme";
             };
         };
-        config.theme = "tomorrow-night-bright";
+        config.theme = "catppuccin-mocha";
     };
 }

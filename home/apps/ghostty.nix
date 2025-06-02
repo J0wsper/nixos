@@ -6,7 +6,7 @@
         enableBashIntegration = true;
         enableFishIntegration = true;
         settings = {
-            theme = "Tomorrow Night Bright";
+            theme = "Ayu Mirage";
         };
     };
 }

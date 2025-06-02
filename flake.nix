@@ -9,8 +9,12 @@
 		};
 
         # Non-flake inputs
-        tomorrow-bat = {
-            url = "github:J0wsper/tomorrow-night";
+        catppuccin-bat = {
+            url = "github:catppuccin/bat";
+            flake = false;
+        };
+        catppuccin-fish = {
+            url = "github:catppuccin/fish";
             flake = false;
         };
 	};

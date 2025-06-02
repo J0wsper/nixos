@@ -1,7 +1,40 @@
+require("catppuccin").setup({
+flavour = "mocha", -- latte, frappe, macchiato, mocha
+background = { -- :h background
+  light = "latte",
+  dark = "mocha",
+},
+integrations = {
+  cmp = true,
+  notify = true,
+  telescope = true,
+  treesitter = true,
+  lsp_trouble = true,
+  which_key = true,
+
+  native_lsp = {
+    enabled = true,
+    virtual_text = {
+      errors = { "italic" },
+      hints = { "italic" },
+      warnings = { "italic" },
+      information = { "italic" },
+    },
+    underlines = {
+      errors = { "underline" },
+      hints = { "underline" },
+      warnings = { "underline" },
+      information = { "underline" },
+    },
+  },
+},
+})
+vim.cmd.colorscheme "catppuccin"
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'Tomorrow',
+    theme = 'catppuccin',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {

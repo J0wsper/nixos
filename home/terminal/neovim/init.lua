@@ -33,10 +33,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', {desc = 'Move focus to the top window
 
 -- require("telescope")
 -- require("dropbar")
---  require("lsp")
+ require("lsp")
 require ("misc")
 --  require("snippets")
  require("theme")
 --  require("clipboard")
 --  require("folding")
---  require("treesitter")
+ require("treesitter")

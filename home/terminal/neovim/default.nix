@@ -34,6 +34,9 @@
 			noice-nvim
 			trouble-nvim
 			lualine-nvim
+
+            # Themes
+            catppuccin-nvim
 		];
 	};
 	xdg.configFile = {
