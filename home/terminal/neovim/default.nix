@@ -15,6 +15,12 @@
 			pkgs.lua-language-server
 			pkgs.rust-analyzer
 			pkgs.fish-lsp
+
+            # Formatters
+            pkgs.ruff
+            pkgs.rustfmt
+            pkgs.stylua
+            pkgs.nixfmt
 		];
 		plugins = with pkgs.vimPlugins; [
 			# Important backend
@@ -23,6 +29,7 @@
 			cmp-nvim-lsp
 			cmp_luasnip
 			luasnip
+            conform-nvim
 
 			# QoL plugins
 			leap-nvim
