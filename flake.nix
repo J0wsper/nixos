@@ -19,10 +19,18 @@
     };
   };
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."hearts" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./system/nixos-common.nix ./system/common.nix ];
-      specialArgs = { inherit inputs; };
+      modules =
+        [ ./system/nixos-common.nix ./system/common.nix ./system/hearts.nix ];
+      extraSpecialArgs = { inherit inputs; };
+
+    };
+    nixosConfigurations."work" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules =
+        [ ./system/nixos-common.nix ./system/common.nix ./system/work.nix ];
+      extraSpecialArgs = { inherit inputs; };
     };
   };
 }

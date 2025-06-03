@@ -5,38 +5,35 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brams = {
-    name = "brams";
     isNormalUser = true;
     description = "Bram Schuijff";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [ "jujutsu-0.23.0" ];
+    };
+  };
+
   # Setting up home manager and its options.
   home-manager = {
-    users.brams = import ../home/common.nix;
+    users.brams = import ../home/work.nix;
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
   };
 
-  nix.settings = {
-    auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
-    keep-derivations = true;
-    keep-outputs = true;
-  };
+  programs.firefox.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enabling fish system-wide is necessary to make it the default shell.
-  programs.fish = {
-    enable = true;
-    useBabelfish = true;
-  };
-  programs.firefox.enable = true;
+  programs.fish.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
