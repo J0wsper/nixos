@@ -6,10 +6,10 @@ vim.o.number = true
 vim.o.undofile = true
 
 -- Diagnostic information
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "open diagnostic floating window" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "open diagnostic floating window" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "prev diagnostic" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "next diagnostic" })
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { desc = "open diagnostic buffer" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "open diagnostic buffer" })
 
 -- Setting up assorted configs
 require("Comment").setup()
