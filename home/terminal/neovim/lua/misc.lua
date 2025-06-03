@@ -5,6 +5,7 @@ vim.o.smarttab = false
 vim.o.number = true
 vim.o.undofile = true
 
+-- Diagnostic information
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "open diagnostic floating window" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "prev diagnostic" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "next diagnostic" })
@@ -16,6 +17,7 @@ require("which-key").setup({})
 require("noice").setup()
 require("trouble").setup({})
 require("leap").set_default_mappings()
+require("gitsigns").setup({})
 
 -- Dropbar configuration
 local dropbar_api = require("dropbar.api")

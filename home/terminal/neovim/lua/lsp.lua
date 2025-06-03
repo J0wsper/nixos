@@ -63,7 +63,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "sourcekit", "texlab", "pylsp", "bashls", "html", "rust_analyzer", "fish_lsp" }
+local servers = { "sourcekit", "texlab", "pylsp", "bashls", "html", "rust_analyzer", "fish_lsp", "pyright" }
 -- The HTML server says you should do
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- but it is covered by default_capabilities(), so I don't
@@ -130,4 +130,19 @@ lspconfig.clangd.setup({
 		require("clangd_extensions.inlay_hints").set_inlay_hints()
 	end,
 	capabilities = capabilities,
+})
+-- https://www.reddit.com/r/neovim/comments/y3mkpp/nvim_masonlspconfig_pyright_configuration/
+lspconfig.pyright.setup({
+	on_attach = on_attach,
+	settings = {
+		pyright = { autoImportCompletion = true },
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				diagnosticMode = "openFilesOnly",
+				useLibraryCodeForTypes = true,
+				typeCheckingMode = "off",
+			},
+		},
+	},
 })

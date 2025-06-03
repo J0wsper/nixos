@@ -21,6 +21,9 @@
       pkgs.rustfmt
       pkgs.stylua
       pkgs.nixfmt-classic
+
+      # Linters
+      pkgs.pyright
     ];
     plugins = with pkgs.vimPlugins; [
       # Important backend
