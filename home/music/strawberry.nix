@@ -1,7 +1,5 @@
 { config, pkgs, inputs, ... }:
 
 {
-	programs.strawberry = {
-		enable = true;
-	};
+  programs.strawberry = { enable = true; };
 }

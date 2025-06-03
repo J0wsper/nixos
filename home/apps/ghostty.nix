@@ -1,12 +1,10 @@
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
-    programs.ghostty = {
-        enable = true;
-        enableBashIntegration = true;
-        enableFishIntegration = true;
-        settings = {
-            theme = "Ayu Mirage";
-        };
-    };
+  programs.ghostty = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    settings = { theme = "Ayu Mirage"; };
+  };
 }

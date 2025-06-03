@@ -1,8 +1,8 @@
-{ inputs, pkgs, config, ...}:
+{ inputs, pkgs, config, ... }:
 
 {
-	programs.zoxide = {
-		enable = true;
-		# options = [];
-	};
+  programs.zoxide = {
+    enable = true;
+    # options = [];
+  };
 }
