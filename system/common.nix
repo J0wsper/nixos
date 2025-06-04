@@ -54,6 +54,8 @@
     fzf
     openssh
     zlib
+    # Need this for work-related things
+    dpkg
   ];
 
   # Getting nerd fonts
