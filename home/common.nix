@@ -7,7 +7,7 @@
 
   nix.registry.n.flake = inputs.nixpkgs;
 
-  home.packages = [ pkgs.manix pkgs.xsel pkgs.strawberry pkgs.webex ];
+  home.packages = [ pkgs.manix ];
 
   imports = [
     # Shell apps
