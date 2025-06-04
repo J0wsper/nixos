@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    falcon-sensor = { url = "path:/system/packages/falcon.nix"; };
 
     # Non-flake inputs
     catppuccin-bat = {
