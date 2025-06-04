@@ -43,20 +43,12 @@
   # Enabling fish system-wide is necessary to make it the default shell.
   programs.fish.enable = true;
 
-  # Steam cannot be configured in Home Manger easily, so the best solution I found is to enable it
-  # system-wide like so.
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-  
+  # Steam cannot be configured in Home Manger easily, so the best solution
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	vim
-  	wget
+  	vim 	
+	wget
 	bat
 	git
 	btop
@@ -66,8 +58,6 @@
 	neovim
 	fd
 	eza
-	discord
-    kdePackages.okular
 	fzf
 	openssh
   ];
