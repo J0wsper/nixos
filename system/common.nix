@@ -5,9 +5,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [
-    ./nixos-common.nix
-  ];
+  imports = [ ./nixos-common.nix ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brams = {
@@ -19,27 +17,22 @@
 
   nixpkgs = {
     config = {
-        allowUnfree = true;
-    	permittedInsecurePackages = [
-      		"jujutsu-0.23.0"
-      	];
-     };
+      allowUnfree = true;
+      permittedInsecurePackages = [ "jujutsu-0.23.0" ];
+    };
   };
-  
+
   # Setting up home manager and its options.
   home-manager = {
-        users.brams = import ../home/common.nix;
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        extraSpecialArgs = { inherit inputs; };
+    users.brams = import ../home/common.nix;
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
   };
 
   programs.firefox.enable = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Enabling fish system-wide is necessary to make it the default shell.
   programs.fish.enable = true;
 
@@ -47,34 +40,31 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	vim 	
-	wget
-	bat
-	git
-	btop
-	hyperfine
-	python3
-	ripgrep
-	neovim
-	fd
-	eza
-	fzf
-	openssh
+    vim
+    wget
+    bat
+    git
+    btop
+    hyperfine
+    python3
+    ripgrep
+    neovim
+    fd
+    eza
+    fzf
+    openssh
+    zlib
   ];
-  
+
   # Getting nerd fonts
   fonts = {
     enableDefaultPackages = true;
-    packages = with pkgs; [
-      nerd-fonts.fira-code
-      nerd-fonts.droid-sans-mono
-    ];
+    packages = with pkgs; [ nerd-fonts.fira-code nerd-fonts.droid-sans-mono ];
   };
 
-  system.configurationRevision =
-    if inputs.self ? rev then
-      inputs.self.rev
-    else
-      throw "Refusing to build from a dirty Git tree!";
+  system.configurationRevision = if inputs.self ? rev then
+    inputs.self.rev
+  else
+    throw "Refusing to build from a dirty Git tree!";
 
 }
