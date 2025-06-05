@@ -22,6 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       flake = false;
     };
+    nasl = {
+      url = "github:tenable/nasl";
+      flake = false;
+    };
   };
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations."work" = nixpkgs.lib.nixosSystem {

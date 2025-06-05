@@ -7,6 +7,7 @@
 {
   imports = [
     ./nixos-common.nix # ./packages/falcon.nix
+    ./packages/nessus-agent-test.nix
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -74,6 +75,7 @@
       pcsc-tools
       pcsclite
       p11-kit
+      autoPatchelfHook
       firefox
     ];
     etc."pkcs11/modules/OpenSC".text = ''

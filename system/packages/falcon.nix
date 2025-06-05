@@ -1,5 +1,5 @@
 # https://github.com/mbfr/nixos-setup/blob/master/falcon.nix
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   falcon = pkgs.callPackage ./falcon-default.nix { };
   startPreScript = pkgs.writeScript "init-falcon" ''
