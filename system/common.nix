@@ -5,7 +5,9 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [ ./nixos-common.nix ./packages/falcon.nix ];
+  imports = [
+    ./nixos-common.nix # ./packages/falcon.nix
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brams = {
@@ -31,6 +33,7 @@
   };
 
   programs.firefox.enable = true;
+  programs.chromium.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enabling fish system-wide is necessary to make it the default shell.
@@ -56,6 +59,9 @@
     zlib
     # Need this for work-related things
     dpkg
+    opensc
+    nss.tools
+    nss_latest
   ];
 
   # Getting nerd fonts

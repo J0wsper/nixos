@@ -1,5 +1,5 @@
 { stdenv, lib, pkgs, dpkg, openssl, libnl, zlib, fetchurl, autoPatchelfHook
-, buildFHSUserEnv, writeScript, ... }:
+, writeScript, buildFHSEnv, ... }:
 let
   pname = "falcon-sensor";
   version = "7.19.0-17219-1";
@@ -14,11 +14,11 @@ let
     sourceRoot = ".";
 
     unpackPhase = ''
-      dpkg-deb -x $src .                                                                                                                                                                                                                                                                            
+      dpkg-deb -x $src .
     '';
 
     installPhase = ''
-      cp -r . $out                                                                                                                                                                                                                                                                                  
+      cp -r . $out
     '';
 
     meta = with lib; {
@@ -29,12 +29,12 @@ let
       maintainers = with maintainers; [ J0wsper ];
     };
   };
-in buildFHSUserEnv {
+in buildFHSEnv {
   name = "fs-bash";
   targetPkgs = pkgs: [ libnl openssl zlib ];
 
   extraInstallCommands = ''
-    ln -s ${falcon-sensor}/* $out/                                                                                                                                                                                                                                                                    
+    ln -s ${falcon-sensor}/* $out/
   '';
 
   runScript = "bash";

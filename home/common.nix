@@ -7,7 +7,7 @@
 
   nix.registry.n.flake = inputs.nixpkgs;
 
-  home.packages = [ pkgs.manix ];
+  home.packages = [ pkgs.manix pkgs.libnss_nis pkgs.chromium ];
 
   imports = [
     # Shell apps
