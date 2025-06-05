@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    falcon-sensor = {
-      url = "path:system/packages/falcon.nix";
-      flake = false;
-    };
 
     # Non-flake inputs
     catppuccin-bat = {
@@ -21,9 +17,14 @@
       url = "github:catppuccin/fish";
       flake = false;
     };
+    falcon-sensor = {
+      url = "path:system/packages/falcon.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      flake = false;
+    };
   };
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."work" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ ./system/nixos-common.nix ./system/common.nix ];
       specialArgs = { inherit inputs; };

@@ -5,7 +5,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [ ./nixos-common.nix ];
+  imports = [ ./nixos-common.nix ./packages/falcon.nix ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brams = {
