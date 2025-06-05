@@ -21,6 +21,15 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [ "jujutsu-0.23.0" ];
+      # https://github.com/NixOS/nixpkgs/issues/171978
+      packageOverrides = pkgs: {
+        firefox = pkgs.firefox.override {
+          extraPolicies = {
+            SecurityDevices.p11-kit-proxy =
+              "${pkgs.p11-kit}/lib/p11-kit-proxy.so";
+          };
+        };
+      };
     };
   };
 
@@ -62,10 +71,16 @@
       opensc
       nss.tools
       nss_latest
-      firefox-esr
+      pcsc-tools
+      pcsclite
       p11-kit
+      firefox
     ];
-    # etc."pkcs11/modules/${name}"
+    etc."pkcs11/modules/OpenSC".text = ''
+      module: ${pkgs.opensc}/lib/onepin-opensc-pkcs11.so
+      critical: yes
+      log-calls: yes
+    '';
   };
 
   # Getting nerd fonts
