@@ -32,7 +32,6 @@
     extraSpecialArgs = { inherit inputs; };
   };
 
-  programs.firefox.enable = true;
   programs.chromium.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -42,27 +41,32 @@
   # Steam cannot be configured in Home Manger easily, so the best solution
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    bat
-    git
-    btop
-    hyperfine
-    python3
-    ripgrep
-    neovim
-    fd
-    eza
-    fzf
-    openssh
-    zlib
-    # Need this for work-related things
-    dpkg
-    opensc
-    nss.tools
-    nss_latest
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      vim
+      wget
+      bat
+      git
+      btop
+      hyperfine
+      python3
+      ripgrep
+      neovim
+      fd
+      eza
+      fzf
+      openssh
+      zlib
+      # Need this for work-related things
+      dpkg
+      opensc
+      nss.tools
+      nss_latest
+      firefox-esr
+      p11-kit
+    ];
+    # etc."pkcs11/modules/${name}"
+  };
 
   # Getting nerd fonts
   fonts = {
