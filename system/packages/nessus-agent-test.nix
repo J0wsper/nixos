@@ -1,27 +1,20 @@
-# https://github.com/matrss/nixpkgs/commit/35523c1752ade441277a6f70a25db29fe06f6334
-{ buildFHSEnv, pkgs, writeShellScriptBin, ... }:
-let
-  # pname = "nessus-agent";
-  # version = "10.7.4";
-  # arch = "amd64";
-  # src = /opt/nessus_agent + "/NessusAgent-${version}-debian10_${arch}.deb";
-  # nessus-agent-install = writeShellScriptBin "nessusagentinstall" ''
-  #   ${pkgs.dpkg}/bin/dpkg-deb -x ${src} .
-  #   mv * $out
-  #   echo "Nessus Agent installed to /opt/nessus_agent"
-  # '';
-
-in buildFHSEnv {
-  # name = "nessus-agent-shell";
-  # targetPkgs = pkgs:
-  #   with pkgs; [
-  #     # nessus-agent-install
-  #     coreutils
-  #     tzdata
-  #     nettools
-  #     iproute2
-  #     procps
-  #     util-linux
-  #   ];
-  # runScript = "bash -l";
+{ pkgs, inputs, ... }:
+let nessus-agent = pkgs.callPackage ./nessus-agent-default-test.nix { };
+in {
+  systemd.services.nessus-agent = {
+    enable = true;
+    description = "Tenable Nessus Sensor";
+    unitConfig = { Type = "simple"; };
+    after = [ "network.target" ];
+    serviceConfig = {
+      ExecStart = ''
+        "${nessus-agent}/bin/nessus-agent-shell"
+      '';
+      Type = "oneshot";
+      Restart = "no";
+      TimeoutStopSec = "60s";
+      KillMode = "process";
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
 }

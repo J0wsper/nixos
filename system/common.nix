@@ -67,6 +67,7 @@
       fzf
       openssh
       zlib
+
       # Need this for work-related things
       dpkg
       opensc
