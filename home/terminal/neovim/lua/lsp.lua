@@ -146,3 +146,8 @@ lspconfig.pyright.setup({
 		},
 	},
 })
+lspconfig.marksman.setup({
+	on_attach = on_attach,
+	settings = {},
+	capabilities = capabilities,
+})

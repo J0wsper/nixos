@@ -15,6 +15,7 @@
       pkgs.lua-language-server
       pkgs.rust-analyzer
       pkgs.fish-lsp
+      pkgs.marksman
 
       # Formatters
       pkgs.ruff
