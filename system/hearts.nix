@@ -18,11 +18,6 @@
   # Enabling the Nix garbage collector
   nix.gc = {
     automatic = true;
-    interval = {
-      Day = 1;
-      Hour = 1;
-      Minute = 1;
-    };
     options = "--delete-old";
   };
 
