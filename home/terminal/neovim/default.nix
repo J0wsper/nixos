@@ -20,6 +20,7 @@
       pkgs.ruff
       pkgs.rustfmt
       pkgs.stylua
+      pkgs.prettierd
       pkgs.nixfmt-classic
 
       # Linters
