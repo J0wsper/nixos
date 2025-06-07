@@ -23,14 +23,14 @@
       system = "x86_64-linux";
       modules =
         [ ./system/nixos-common.nix ./system/common.nix ./system/hearts.nix ];
-      extraSpecialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs; };
 
     };
     nixosConfigurations."work" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules =
         [ ./system/nixos-common.nix ./system/common.nix ./system/work.nix ];
-      extraSpecialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs; };
     };
   };
 }

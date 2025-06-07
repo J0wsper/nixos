@@ -47,6 +47,7 @@
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       leap-nvim
+      nvim-surround
 
       # Themes
       catppuccin-nvim
