@@ -39,7 +39,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the top windo
 require("lsp")
 require("misc")
 require("format")
---  require("snippets")
+require("snippets")
 require("theme")
 --  require("clipboard")
 --  require("folding")
