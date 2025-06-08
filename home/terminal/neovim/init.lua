@@ -19,6 +19,11 @@ vim.opt.undofile = true
 -- Conceal additional characters
 vim.opt.conceallevel = 1
 
+-- Enable floating diagonstic information
+vim.diagnostic.config({
+	virtual_text = true,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",
 	callback = function()
