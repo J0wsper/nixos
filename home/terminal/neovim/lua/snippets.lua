@@ -1,7 +1,4 @@
 local luasnip = require("luasnip")
-luasnip.config.set_config({
-	store_selection_keys = "<Tab>", --Use 'viw' to enter 'v'isual mode and select the 'i'nner 'w'ord (the current word without spaces before or after), then hit '<Tab>' (or whatever I now have the key set to). this will remove the selection, allowing you to use `snip.env.TM_SELECTED_TEXT` to get in in a snippet (see the markdown link snippet)
-})
 
 -- nvim-cmp setup
 local cmp = require("cmp")
