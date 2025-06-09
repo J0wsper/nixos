@@ -5,10 +5,8 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [
-    ./nixos-common.nix # ./packages/falcon.nix
-    ./packages/nessus-agent.nix
-  ];
+  imports =
+    [ ./nixos-common.nix ./packages/falcon.nix ./packages/nessus-agent.nix ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brams = {

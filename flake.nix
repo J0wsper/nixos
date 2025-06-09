@@ -17,15 +17,6 @@
       url = "github:catppuccin/fish";
       flake = false;
     };
-    falcon-sensor = {
-      url = "path:system/packages/falcon.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      flake = false;
-    };
-    nasl = {
-      url = "github:tenable/nasl";
-      flake = false;
-    };
   };
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations."work" = nixpkgs.lib.nixosSystem {

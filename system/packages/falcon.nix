@@ -9,11 +9,29 @@ let
     ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -g --cid"
   '';
 in {
+  systemd.tmpfiles.settings = {
+    "10-crowdstrike" = {
+      "/opt/CrowdStrike" = {
+        d = {
+          group = "crowdstrike";
+          user = "crowdstrike";
+          mode = "0770";
+        };
+      };
+      "/var/log/falconctl.log" = {
+        f = {
+          group = "root";
+          user = "root";
+          mode = "0666";
+        };
+      };
+    };
+  };
   systemd.services.falcon-sensor = {
     enable = true;
     description = "CrowdStrike Falcon Sensor";
     unitConfig.DefaultDependencies = false;
-    after = [ "local-fs.target" ];
+    after = [ "local-fs.target" "systemd-tmpfiles-setup.service" ];
     conflicts = [ "shutdown.target" ];
     before = [ "sysinit.target" "shutdown.target" ];
     serviceConfig = {
@@ -27,23 +45,5 @@ in {
       KillMode = "process";
     };
     wantedBy = [ "multi-user.target" ];
-  };
-  systemd.tmpfiles.settings = {
-    "10-crowdstrike" = {
-      "/opt/CrowdStrike" = {
-        d = {
-          group = "root";
-          user = "root";
-          mode = "0770";
-        };
-      };
-      "/var/log/falconctl.log" = {
-        f = {
-          group = "root";
-          user = "root";
-          mode = "0660";
-        };
-      };
-    };
   };
 }

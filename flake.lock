@@ -32,18 +32,6 @@
         "type": "github"
       }
     },
-    "falcon-sensor": {
-      "flake": false,
-      "locked": {
-        "path": "system/packages/falcon.nix",
-        "type": "path"
-      },
-      "original": {
-        "path": "system/packages/falcon.nix",
-        "type": "path"
-      },
-      "parent": []
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -62,22 +50,6 @@
         "owner": "nix-community",
         "ref": "master",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "nasl": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1669828738,
-        "narHash": "sha256-6rXk+89vLml+WFADYxwd3AhEcqjHJ0P0vICI29jIgzI=",
-        "owner": "tenable",
-        "repo": "nasl",
-        "rev": "ddc7af4513f18dd0500891580a2448475e863875",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tenable",
-        "repo": "nasl",
         "type": "github"
       }
     },
@@ -101,9 +73,7 @@
       "inputs": {
         "catppuccin-bat": "catppuccin-bat",
         "catppuccin-fish": "catppuccin-fish",
-        "falcon-sensor": "falcon-sensor",
         "home-manager": "home-manager",
-        "nasl": "nasl",
         "nixpkgs": "nixpkgs"
       }
     }
