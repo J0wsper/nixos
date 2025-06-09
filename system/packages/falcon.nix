@@ -37,7 +37,8 @@ in {
     serviceConfig = {
       StandardOutput = "journal";
       ExecStartPre = pkgs.writeShellScript "crowdstrike-prestart" ''
-        ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --cid=C87F75774D"
+        ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -h"
+        ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --cid"
       '';
       ExecStart = ''
         ${falcon}/bin/fs-bash -c ${falcon}/opt/CrowdStrike/falcond
