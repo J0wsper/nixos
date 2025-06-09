@@ -7,7 +7,7 @@
 {
   imports = [
     ./nixos-common.nix # ./packages/falcon.nix
-    ./packages/nessus-agent-test.nix
+    ./packages/nessus-agent.nix
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
