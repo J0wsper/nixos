@@ -16,7 +16,7 @@
       pkgs.rust-analyzer
       pkgs.fish-lsp
       pkgs.marksman
-      pkgs.clang
+      pkgs.clang-tools
 
       # Formatters
       pkgs.ruff

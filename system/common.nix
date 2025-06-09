@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [ ./nixos-common.nix ];
@@ -61,6 +61,9 @@
       fzf
       openssh
       zlib
+      llvmPackages_16.libstdcxxClang
+      clang
+      clang-tools
     ];
   };
 

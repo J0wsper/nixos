@@ -73,7 +73,6 @@ local servers = {
 	"fish_lsp",
 	"pyright",
 	"marksman",
-	"clang",
 }
 -- The HTML server says you should do
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -134,13 +133,14 @@ lspconfig.nixd.setup({
 	-- }
 })
 -- clangd_extensions now wants you to set up like this anyway
-lspconfig.clang.setup({
+lspconfig.clangd.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
 		require("clangd_extensions.inlay_hints").setup_autocmd()
 		require("clangd_extensions.inlay_hints").set_inlay_hints()
 	end,
 	capabilities = capabilities,
+	filetypes = { "c", "cpp" },
 })
 -- https://www.reddit.com/r/neovim/comments/y3mkpp/nvim_masonlspconfig_pyright_configuration/
 lspconfig.pyright.setup({
