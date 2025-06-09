@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   programs.neovim = {
@@ -15,11 +15,13 @@
       pkgs.lua-language-server
       pkgs.rust-analyzer
       pkgs.fish-lsp
+      pkgs.marksman
 
       # Formatters
       pkgs.ruff
       pkgs.rustfmt
       pkgs.stylua
+      pkgs.prettierd
       pkgs.nixfmt-classic
 
       # Linters
@@ -47,6 +49,7 @@
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       leap-nvim
+      nvim-surround
 
       # Themes
       catppuccin-nvim
@@ -56,6 +59,6 @@
     # "nvim/snippets".source = ./snippets;
     # "nvim/after/ftplugins".source = ./after/ftplugin;
     "nvim/lua".source = ./lua;
-    # "nvim/ftplugin".source = ./ftplugin;
+    "nvim/ftplugin".source = ./ftplugin;
   };
 }

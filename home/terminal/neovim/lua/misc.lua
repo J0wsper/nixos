@@ -18,6 +18,7 @@ require("noice").setup()
 require("trouble").setup({})
 require("leap").set_default_mappings()
 require("gitsigns").setup({})
+require("nvim-surround").setup({})
 
 -- Dropbar configuration
 local dropbar_api = require("dropbar.api")

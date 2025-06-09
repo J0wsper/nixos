@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "brams";
@@ -7,7 +7,7 @@
 
   nix.registry.n.flake = inputs.nixpkgs;
 
-  home.packages = [ pkgs.manix pkgs.libnss_nis pkgs.chromium ];
+  home.packages = with pkgs; [ manix xsel ];
 
   imports = [
     # Shell apps
@@ -23,8 +23,6 @@
 
     # Neovim
     ./terminal/neovim
-
-    # Music apps
 
     # Miscellanious apps
     ./apps/ghostty.nix

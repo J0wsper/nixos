@@ -21,7 +21,14 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations."work" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./system/nixos-common.nix ./system/common.nix ];
+      modules =
+        [ ./system/nixos-common.nix ./system/common.nix ./system/work.nix ];
+      specialArgs = { inherit inputs; };
+    };
+    nixosConfigurations."hearts" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules =
+        [ ./system/nixos-common.nix ./system/common.nix ./system/hearts.nix ];
       specialArgs = { inherit inputs; };
     };
   };

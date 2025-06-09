@@ -5,14 +5,11 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [
-    ./nixos-common.nix
-    # ./packages/falcon.nix
-    ./packages/nessus-agent.nix
-  ];
+  imports = [ ./nixos-common.nix ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brams = {
+    name = "brams";
     isNormalUser = true;
     description = "Bram Schuijff";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -23,15 +20,6 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [ "jujutsu-0.23.0" ];
-      # https://github.com/NixOS/nixpkgs/issues/171978
-      packageOverrides = pkgs: {
-        firefox = pkgs.firefox.override {
-          extraPolicies = {
-            SecurityDevices.p11-kit-proxy =
-              "${pkgs.p11-kit}/lib/p11-kit-proxy.so";
-          };
-        };
-      };
     };
   };
 
@@ -43,15 +31,20 @@
     extraSpecialArgs = { inherit inputs; };
   };
 
-  programs.chromium.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = [ "nix-command" "flakes" ];
+    keep-derivations = true;
+    keep-outputs = true;
+  };
 
   # Enabling fish system-wide is necessary to make it the default shell.
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
 
-  # Steam cannot be configured in Home Manger easily, so the best solution
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
       vim
@@ -68,24 +61,7 @@
       fzf
       openssh
       zlib
-
-      # Need this for work-related things
-      dpkg
-      opensc
-      nss.tools
-      nss_latest
-      pcsc-tools
-      pcsclite
-      p11-kit
-      autoPatchelfHook
-      firefox
-      cinny-desktop
     ];
-    etc."pkcs11/modules/OpenSC".text = ''
-      module: ${pkgs.opensc}/lib/onepin-opensc-pkcs11.so
-      critical: yes
-      log-calls: yes
-    '';
   };
 
   # Getting nerd fonts
@@ -98,5 +74,4 @@
     inputs.self.rev
   else
     throw "Refusing to build from a dirty Git tree!";
-
 }
