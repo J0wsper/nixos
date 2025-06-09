@@ -5,8 +5,11 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports =
-    [ ./nixos-common.nix ./packages/falcon.nix ./packages/nessus-agent.nix ];
+  imports = [
+    ./nixos-common.nix
+    # ./packages/falcon.nix
+    ./packages/nessus-agent.nix
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brams = {
@@ -76,6 +79,7 @@
       p11-kit
       autoPatchelfHook
       firefox
+      cinny-desktop
     ];
     etc."pkcs11/modules/OpenSC".text = ''
       module: ${pkgs.opensc}/lib/onepin-opensc-pkcs11.so
