@@ -16,6 +16,7 @@
       pkgs.rust-analyzer
       pkgs.fish-lsp
       pkgs.marksman
+      pkgs.clang
 
       # Formatters
       pkgs.ruff
@@ -50,6 +51,7 @@
       nvim-web-devicons
       leap-nvim
       nvim-surround
+      clangd_extensions-nvim
 
       # Themes
       catppuccin-nvim

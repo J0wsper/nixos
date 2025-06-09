@@ -63,7 +63,18 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "sourcekit", "texlab", "pylsp", "bashls", "html", "rust_analyzer", "fish_lsp", "pyright", "marksman" }
+local servers = {
+	"sourcekit",
+	"texlab",
+	"pylsp",
+	"bashls",
+	"html",
+	"rust_analyzer",
+	"fish_lsp",
+	"pyright",
+	"marksman",
+	"clang",
+}
 -- The HTML server says you should do
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- but it is covered by default_capabilities(), so I don't
@@ -123,7 +134,7 @@ lspconfig.nixd.setup({
 	-- }
 })
 -- clangd_extensions now wants you to set up like this anyway
-lspconfig.clangd.setup({
+lspconfig.clang.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
 		require("clangd_extensions.inlay_hints").setup_autocmd()
