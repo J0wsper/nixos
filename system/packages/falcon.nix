@@ -1,5 +1,5 @@
 # https://github.com/mbfr/nixos-setup/blob/master/falcon.nix
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, env, cfg, ... }:
 let
   falcon = pkgs.callPackage ./falcon-default.nix { };
   startPreScript = pkgs.writeScript "init-falcon" ''
@@ -13,37 +13,43 @@ in {
     "10-crowdstrike" = {
       "/opt/CrowdStrike" = {
         d = {
-          group = "crowdstrike";
-          user = "crowdstrike";
+          group = "falcon";
+          user = "falcon";
           mode = "0770";
         };
       };
       "/var/log/falconctl.log" = {
         f = {
-          group = "root";
-          user = "root";
+          group = "falcon";
+          user = "falcon";
           mode = "0666";
         };
       };
     };
   };
   systemd.services.falcon-sensor = {
-    enable = true;
     description = "CrowdStrike Falcon Sensor";
     unitConfig.DefaultDependencies = false;
     after = [ "local-fs.target" "systemd-tmpfiles-setup.service" ];
     conflicts = [ "shutdown.target" ];
-    before = [ "sysinit.target" "shutdown.target" ];
+    before = [ "shutdown.target" ];
+
     serviceConfig = {
-      ExecStartPre = "${startPreScript}";
-      ExecStart =
-        ''${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falcond"'';
+      StandardOutput = "journal";
+      ExecStartPre = pkgs.writeShellScript "crowdstrike-prestart" ''
+        ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --cid=C87F75774D"
+      '';
+      ExecStart = ''
+        ${falcon}/bin/fs-bash -c ${falcon}/opt/CrowdStrike/falcond
+      '';
       Type = "forking";
       PIDFile = "/run/falcond.pid";
       Restart = "no";
       TimeoutStopSec = "60s";
-      KillMode = "process";
+      KillMode = "control-group";
+      KillSignal = "SIGTERM";
     };
+
     wantedBy = [ "multi-user.target" ];
   };
 }
