@@ -7,7 +7,7 @@
 
   nix.registry.n.flake = inputs.nixpkgs;
 
-  home.packages = with pkgs; [ libnss_nis webex ];
+  home.packages = with pkgs; [ libnss_nis webex apptainer ];
 
   imports = [ ];
 
