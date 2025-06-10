@@ -62,7 +62,7 @@
   };
   xdg.configFile = {
     # "nvim/snippets".source = ./snippets;
-    "nvim/after/ftplugins".source = ./after/ftplugin;
+    # "nvim/after/ftplugins".source = ./after/ftplugin;
     "nvim/lua".source = ./lua;
     "nvim/ftplugin".source = ./ftplugin;
   };
