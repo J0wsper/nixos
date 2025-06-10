@@ -6,6 +6,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp says not to use omnifunc with nvim_cmp
   --]]
+	vim.notify("Attached to client " .. client.name, vim.log.levels.INFO)
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -71,8 +72,6 @@ local servers = {
 	"html",
 	"rust_analyzer",
 	"fish_lsp",
-	"pyright",
-	"marksman",
 	"clangd",
 }
 -- The HTML server says you should do
@@ -133,16 +132,6 @@ lspconfig.nixd.setup({
 	--   }
 	-- }
 })
--- -- clangd_extensions now wants you to set up like this anyway
--- lspconfig.clangd.setup({
--- 	on_attach = function(client, bufnr)
--- 		on_attach(client, bufnr)
--- 		require("clangd_extensions.inlay_hints").setup_autocmd()
--- 		require("clangd_extensions.inlay_hints").set_inlay_hints()
--- 	end,
--- 	capabilities = capabilities,
--- })
--- https://www.reddit.com/r/neovim/comments/y3mkpp/nvim_masonlspconfig_pyright_configuration/
 lspconfig.pyright.setup({
 	on_attach = on_attach,
 	settings = {
@@ -160,6 +149,8 @@ lspconfig.pyright.setup({
 lspconfig.marksman.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { "markdown", "md" },
-	autostart = true,
+	cmd = { "marksman", "server" },
+	filetypes = { "markdown", "markdown.mdx" },
+	-- For some reason, marksman will only run in a directory with a git repo in it if you use the default configuration. I have NO idea why.
+	root_markers = { ".marksman.toml" },
 })

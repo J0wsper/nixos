@@ -6,28 +6,30 @@
     defaultEditor = true;
     extraLuaConfig = builtins.readFile ./init.lua;
     extraLuaPackages = luaPkgs: with luaPkgs; [ ];
-    extraPackages = [
-      pkgs.ripgrep
+    extraPackages = with pkgs; [
+      ripgrep
 
       # Language servers
-      pkgs.nil
-      pkgs.nixd
-      pkgs.lua-language-server
-      pkgs.rust-analyzer
-      pkgs.fish-lsp
-      pkgs.marksman
-      pkgs.clang
-      pkgs.clang-tools
+      nil
+      nixd
+      lua-language-server
+      rust-analyzer
+      fish-lsp
+      clang
+      clang-tools
+      python312Packages.python-lsp-server
+      marksman
 
       # Formatters
-      pkgs.ruff
-      pkgs.rustfmt
-      pkgs.stylua
-      pkgs.prettierd
-      pkgs.nixfmt-classic
+      ruff
+      rustfmt
+      stylua
+      prettierd
+      nixfmt-classic
 
       # Linters
-      pkgs.pyright
+      pyright
+      markdownlint-cli
     ];
     plugins = with pkgs.vimPlugins; [
       # Important backend
@@ -60,7 +62,7 @@
   };
   xdg.configFile = {
     # "nvim/snippets".source = ./snippets;
-    # "nvim/after/ftplugins".source = ./after/ftplugin;
+    "nvim/after/ftplugins".source = ./after/ftplugin;
     "nvim/lua".source = ./lua;
     "nvim/ftplugin".source = ./ftplugin;
   };
