@@ -33,6 +33,13 @@
       true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  # System-wide packages
+  environment.systemPackages = with pkgs;
+    [
+      # Essential for my VPN configuration
+      wireguard-tools
+    ];
+
   system.configurationRevision = if inputs.self ? rev then
     inputs.self.rev
   else

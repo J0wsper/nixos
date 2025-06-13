@@ -21,8 +21,12 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations."hearts" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules =
-        [ ./system/nixos-common.nix ./system/common.nix ./system/hearts.nix ];
+      modules = [
+        ./system/nixos-common.nix
+        ./system/common.nix
+        ./system/hearts.nix
+        ./system/vpn.nix
+      ];
       specialArgs = { inherit inputs; };
 
     };
