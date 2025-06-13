@@ -38,7 +38,19 @@
     # Essential for my VPN configuration
     wireguard-tools
     qbittorrent
+    lidarr
+    prowlarr
   ];
+
+  # Lidarr to index music torrents, prowlarr to manage lidarr
+  services.lidarr = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.prowlarr = {
+    enable = true;
+    openFirewall = true;
+  };
 
   system.configurationRevision = if inputs.self ? rev then
     inputs.self.rev
