@@ -34,11 +34,11 @@
   };
 
   # System-wide packages
-  environment.systemPackages = with pkgs;
-    [
-      # Essential for my VPN configuration
-      wireguard-tools
-    ];
+  environment.systemPackages = with pkgs; [
+    # Essential for my VPN configuration
+    wireguard-tools
+    qbittorrent
+  ];
 
   system.configurationRevision = if inputs.self ? rev then
     inputs.self.rev
