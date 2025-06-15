@@ -42,14 +42,23 @@
     prowlarr
   ];
 
+  users.groups.media = { };
+
   # Lidarr to index music torrents, prowlarr to manage lidarr
   services.lidarr = {
     enable = true;
-    openFirewall = true;
+    group = "media";
+    # openFirewall = true;
   };
   services.prowlarr = {
     enable = true;
-    openFirewall = true;
+    # group = "media";
+    # openFirewall = true;
+  };
+  services.jackett = {
+    enable = true;
+    group = "media";
+    # openFirewall = true;
   };
 
   system.configurationRevision = if inputs.self ? rev then
