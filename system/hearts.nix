@@ -34,17 +34,38 @@
   };
 
   # System-wide packages
-  environment.systemPackages = with pkgs; [
-    # Essential for my VPN configuration
-    wireguard-tools
-    qbittorrent
-    lidarr
-    prowlarr
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      # Essential for my VPN configuration
+      wireguard-tools
+    ];
 
   users.groups.media = { };
 
-  # Lidarr to index music torrents, prowlarr to manage lidarr
+  systemd.services.qbittorrent-nox = {
+    description = "qbittorrent-nox client";
+    after = [ "wg-protonvpn" ];
+    bindsTo = [ "wg-protonvpn" ];
+    requires = [ "network-online.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      user = "qb";
+      group = "media";
+      Type = "simple";
+      Restart = "on-failure";
+      WorkingDirectory = "/var/lib/qb";
+      ExecStart =
+        "${pkgs.qbittorrent-nox}/bin/qbittorrent-nox --webui-port=9000";
+      PrivateTmp = false;
+      RuntimeDirectory = "qb";
+      RuntimeDirectoryMode = 755;
+      NetworkNamespacePath = "/var/run/netns/protonvpn";
+      BindReadOnlyPaths =
+        lib.mkForce [ builtins.storeDir "/etc/netns/protonvpn:/etc" ];
+    };
+  };
+
+  # Lidarr to index music torrents, prowlarr to manage lidarr, jackett for indexing
   services.lidarr = {
     enable = true;
     group = "media";
