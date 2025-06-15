@@ -44,8 +44,8 @@
 
   systemd.services.qbittorrent-nox = {
     description = "qbittorrent-nox client";
-    after = [ "wg-protonvpn" ];
-    bindsTo = [ "wg-protonvpn" ];
+    after = [ "wg-protonvpn.service" ];
+    bindsTo = [ "wg-protonvpn.service" ];
     requires = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
