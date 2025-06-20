@@ -32,3 +32,4 @@ vim.keymap.set("n", "<leader>sf", telescope_builtin.find_files, { desc = "Telesc
 vim.keymap.set("n", "<leader>sg", telescope_builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>sb", telescope_builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>sh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>sm", telescope_builtin.marks, { desc = "Telescope find marks" })
