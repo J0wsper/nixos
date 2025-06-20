@@ -60,6 +60,8 @@ in {
         # https://superuser.com/questions/764986/howto-setup-a-veth-virtual-network
         # https://medium.com/@amazingandyyy/introduction-to-network-namespaces-and-virtual-ethernet-veth-devices-304e0c02d084
 
+        # TODO: Something is just completely fucked in here but I don't know what.
+
         # Create a routing table that routes all traffic through the wg interface. The table number does not matter
         ${ip} -n protonvpn route add default dev wg0 table 2468
         # Set all non-marked (non-fwmarked) traffic use that table
@@ -72,8 +74,8 @@ in {
         # Putting up the links
         ${ip} link set dev veth0 up
         ${ip} link set dev lo up
-        ${ip} -n protonvpn link set dev veth1 up
         ${ip} -n protonvpn link set dev lo up
+        ${ip} -n protonvpn link set dev veth1 up
         # Routing traffic
         ${ip} route add ${vethAddrInVpnNetns}/32 dev veth0
         ${ip} -n protonvpn route add ${vethAddrInMainNetns}/32 dev veth1

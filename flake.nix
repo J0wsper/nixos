@@ -25,7 +25,7 @@
         ./system/nixos-common.nix
         ./system/common.nix
         ./system/hearts.nix
-        ./system/vpn.nix
+        # ./system/vpn.nix
       ];
       specialArgs = { inherit inputs; };
 
