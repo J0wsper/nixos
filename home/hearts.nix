@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.username = "brams";
@@ -7,7 +7,12 @@
 
   nix.registry.n.flake = inputs.nixpkgs;
 
-  home.packages = [ pkgs.discord pkgs.strawberry ];
+  home.packages = with pkgs; [
+    discord
+    strawberry
+    texlive.combined.scheme-medium
+    zathura
+  ];
 
   imports = [ ];
 

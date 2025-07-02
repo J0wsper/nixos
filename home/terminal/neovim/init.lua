@@ -24,6 +24,8 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
+vim.g.vimtex_compiler_method = 'latexrun'
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",
 	callback = function()

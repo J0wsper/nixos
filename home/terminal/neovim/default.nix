@@ -16,6 +16,7 @@
       pkgs.rust-analyzer
       pkgs.fish-lsp
       pkgs.marksman
+      pkgs.texlab
 
       # Formatters
       pkgs.ruff
@@ -23,6 +24,7 @@
       pkgs.stylua
       pkgs.prettierd
       pkgs.nixfmt-classic
+      pkgs.tex-fmt
 
       # Linters
       pkgs.pyright
@@ -35,6 +37,7 @@
       cmp_luasnip
       luasnip
       conform-nvim
+      vimtex
 
       # QoL plugins
       leap-nvim

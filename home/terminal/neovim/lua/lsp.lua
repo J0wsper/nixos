@@ -63,7 +63,8 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "sourcekit", "texlab", "pylsp", "bashls", "html", "rust_analyzer", "fish_lsp", "pyright", "marksman" }
+local servers =
+	{ "sourcekit", "texlab", "pylsp", "bashls", "html", "rust_analyzer", "fish_lsp", "pyright", "marksman", "tex-fmt" }
 -- The HTML server says you should do
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- but it is covered by default_capabilities(), so I don't
