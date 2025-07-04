@@ -37,6 +37,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # NOTE: This is important if you need to enable an NVIDIA GPU
+  # https://discourse.nixos.org/t/pytorch-with-cuda-support/51189/8
   environment.systemPackages = with pkgs; [
     vim
     wget
